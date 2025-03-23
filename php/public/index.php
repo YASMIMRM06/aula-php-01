@@ -12,21 +12,20 @@
 <body>
     <h1>Aula 2 PHP</h1>
 
-
+    <!-- Formulário para cadastrar nova pessoa -->
     <form action="index.php" method="post">
         Nome: <input type="text" name="nome"><br>
         Idade: <input type="number" name="idade"><br>
         <button type="submit">Enviar</button>
     </form>
 
-
+    <!-- Tabela para listar pessoas cadastradas -->
     <table>
         <tr>
-        <th>Nome</th>
-        <th>Idade</th>
+            <th>Nome</th>
+            <th>Idade</th>
         </tr>
         <?php
-            // echo var_dump($pessoas);
             if (isset($pessoas) && is_array($pessoas)) {
                 foreach($pessoas as $pessoa) {
                     echo "<tr>";
@@ -38,7 +37,6 @@
                 echo "<tr><td colspan='2'>Nenhuma pessoa cadastrada.</td></tr>";
             }
         ?>
-
     </table>
 </body>
 </html>
