@@ -1,6 +1,6 @@
 <?php 
 class DB {
-    private $HOST = 'http://wagnerweinert.com.br/phpmyadmin/';
+    private $HOST = 'wagnerweinert.com.br';
     private $USER = 'tads24_mariano';
     private $PASSWORD = 'tads24_mariano';
     private $DB = "tads24_mariano";
@@ -13,6 +13,28 @@ class DB {
         return $this->conn;
     }
 }
+$database = new DB();
+
+// Inserir nova pessoa (POST)
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nome = $_POST['nome'];
+    $idade = $_POST['idade'];
+
+    $conn = $database->getConnection();
+    $query = "INSERT INTO pessoas (nome, idade) VALUES (?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(1, $nome);
+    $stmt->bindParam(2, $idade);
+    $result = $stmt->execute();
+
+    echo $result;
+}
+
+// Listar pessoas (GET)
+$conn = $database->getConnection();
+$query = "SELECT * FROM pessoas";
+$stmt = $conn->query($query);
+$pessoas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
