@@ -1,10 +1,10 @@
 <?php
 
 class DB {
-    private $HOST = 'mysql';
-    private $USER = 'root';
-    private $PASSWORD = 'root';
-    private $DB = "aula_db";
+    private $HOST = 'http://wagnerweinert.com.br/phpmyadmin/';
+    private $USER = 'tads24_mariano';
+    private $PASSWORD = 'tads24_mariano';
+    private $DB = "tads24_mariano";
     private $PORT = 3306;
     private $CHARSET = "utf8mb4";
     private $conn;
