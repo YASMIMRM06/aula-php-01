@@ -42,3 +42,10 @@ volumes:
 
 networks:
   php-network:
+
+composer:
+  image: composer:2
+  volumes:
+  - .laravel:/app
+  networks:
+  - php.network
